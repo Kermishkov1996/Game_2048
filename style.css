@@ -11,11 +11,13 @@ body{
   height: 100vh;
 }
 #game--board{
+  --cell-size: 20vmin;
+  --cel-gap: 2vmin;
   position: relative;
   display: grid;
-  grid-template-columns: repeat(4, 20vmin);
-  grid-template-rows: repeat(4, 20vmin);
-  gap: 2vmin;
+  grid-template-columns: repeat(4, var(--cell-size));
+  grid-template-rows: repeat(4, var(--cell-size));
+  gap: var(--cell-gap);
   border-radius: 1vmin;
 }
 .cell{
@@ -23,9 +25,11 @@ body{
   border-radius: 1vmin;
 }
 .tile{
+  --x: 0;
+  --y: 0;
   position: absolute;
-  top: calc(0 * (20vmin + 2vmin));
-  left: calc(0 * (20vmin + 2vmin));;
+  top: calc(var(--y) * (var(--cell-size) + var(--cel-gap)));
+  left: calc(var(--x) * (var(--cell-size) + var(--cel-gap)));;
   display: flex;
   justify-content: center;
   align-items: center;
