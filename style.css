@@ -12,7 +12,7 @@ body{
 }
 #game--board{
   --cell-size: 20vmin;
-  --cel-gap: 2vmin;
+  --cell-gap: 2vmin;
   position: relative;
   display: grid;
   grid-template-columns: repeat(4, var(--cell-size));
@@ -28,8 +28,8 @@ body{
   --x: 0;
   --y: 0;
   position: absolute;
-  top: calc(var(--y) * (var(--cell-size) + var(--cel-gap)));
-  left: calc(var(--x) * (var(--cell-size) + var(--cel-gap)));;
+  top: calc(var(--y) * (var(--cell-size) + var(--cell-gap)));
+  left: calc(var(--x) * (var(--cell-size) + var(--cell-gap)));;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,4 +41,12 @@ body{
   font-weight: bold;
   background-color: #fff;
   color: #000;
+  transition: 100ms;
+  animation: show 20ms;
+}
+@keyframes show {
+  0%{
+    opacity: 0.5;
+    transform: scale(0);
+  }
 }
