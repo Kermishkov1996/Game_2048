@@ -11,4 +11,8 @@ export class Cell {
 		tile.setXY(this.x, this.y);
 		this.linkedTile = tile;
 	}
+
+	isEmpty() {
+		return !this.linkedTile;
+	}
 }
