@@ -5,7 +5,9 @@ export class Grid {
 	constructor(gridElement) {
 		this.cell = [];
 		for (let i = 0; i < CELLS_COUNT; i++) {
-			const element = array[index];
+			this.cells.push(
+				new Cell(gridElement, x, y)
+			)
 			
 		}
 	}
