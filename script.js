@@ -34,3 +34,34 @@ function handleInput(event) {
 function moveUp() {
 	slideTiles(grid.cellsGroupedByColumn);
 }
+
+function slideTiles(groupedCells) {
+	groupedCells.forEach(group => slideTilesInGroupe(groupe));
+}
+
+function slideTilesInGroupe(groupe) {
+	for (let i =1; i < groupe.length; i++) {
+		if (groupe[i].isEmpty()) {
+			continue;
+		}
+
+		const cellWithTile = groupe[i];
+
+		let targetCell;
+		let j = i - 1;
+		while(j>=0 && groupe[j].canAccept(cellWithTile.linkedTile)) {
+			targetCell = groupe[j];
+			j--;
+		}
+
+		if (!targetCell) {
+			continue;
+		}
+
+		if (targetCell.isEmpty()) {
+			targetCell.linkTile(cellWithTile.linkedTile);
+		} else {
+			targetCell.linkTileForMerge(cellWithTile.linkedTile);
+		}
+	}
+}
