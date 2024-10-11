@@ -30,3 +30,7 @@ function handleInput(event) {
 
 	setupInputOnce();
 }
+
+function moveUp() {
+	slideTiles(grid.cellsGroupedByColumn);
+}
