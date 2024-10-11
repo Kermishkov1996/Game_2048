@@ -12,7 +12,12 @@ export class Cell {
 		this.linkedTile = tile;
 	}
 
+	unLinkTile() {
+		this.linkedTile = null;
+	}
+
 	isEmpty() {
 		return !this.linkedTile;
 	}
+
 }

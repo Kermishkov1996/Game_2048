@@ -63,5 +63,7 @@ function slideTilesInGroupe(groupe) {
 		} else {
 			targetCell.linkTileForMerge(cellWithTile.linkedTile);
 		}
+
+		cellWithTile.unlinkTile();
 	}
 }
