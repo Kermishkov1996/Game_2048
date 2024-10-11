@@ -24,4 +24,8 @@ export class Cell {
 		tile.setXY(this.x, this.y);
 		this.linkedTileForMerge = tile;
 	}
+
+	canAccept(newTile) {
+		return this.isEmpty() || (!this.hasTileForMerge() && this.linkedTile.value === newTile.value);	
+	}
 }
