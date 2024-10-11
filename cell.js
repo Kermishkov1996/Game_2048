@@ -25,6 +25,10 @@ export class Cell {
 		this.linkedTileForMerge = tile;
 	}
 
+	hasTileForMerge() {
+		return !!this.linkedTileForMerge;
+	}
+
 	canAccept(newTile) {
 		return this.isEmpty() || (!this.hasTileForMerge() && this.linkedTile.value === newTile.value);	
 	}
