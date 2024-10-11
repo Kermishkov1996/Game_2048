@@ -36,7 +36,7 @@ function moveUp() {
 }
 
 function slideTiles(groupedCells) {
-	groupedCells.forEach(group => slideTilesInGroupe(groupe));
+	groupedCells.forEach(groupe => slideTilesInGroupe(groupe));
 }
 
 function slideTilesInGroupe(groupe) {
@@ -64,6 +64,6 @@ function slideTilesInGroupe(groupe) {
 			targetCell.linkTileForMerge(cellWithTile.linkedTile);
 		}
 
-		cellWithTile.unlinkTile();
+		cellWithTile.unLinkTile();
 	}
 }
