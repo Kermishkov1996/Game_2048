@@ -20,4 +20,8 @@ export class Cell {
 		return !this.linkedTile;
 	}
 
+	linkTileForMerge(tile) {
+		tile.setXY(this.x, this.y);
+		this.linkedTileForMerge = tile;
+	}
 }
