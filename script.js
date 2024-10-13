@@ -37,6 +37,10 @@ function moveUp() {
 
 function slideTiles(groupedCells) {
 	groupedCells.forEach(groupe => slideTilesInGroupe(groupe));
+
+	grid.cells.forEach(cell => {
+		cell.hasTileForMerge() && cell.mergeTiles();
+	});
 }
 
 function slideTilesInGroupe(groupe) {
