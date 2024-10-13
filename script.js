@@ -24,6 +24,7 @@ function handleInput(event) {
 			moveLeft();
       break;
     case "ArrowRight":
+			moveRight();
       break;
 		default:
 			setupInputOnce();
@@ -43,6 +44,10 @@ function moveDown() {
 
 function moveLeft() {
 	slideTiles(grid.cellsGroupedByRow);
+}
+
+function moveRight() {
+	slideTiles(grid.cellsGroupedByReversedRow);
 }
 
 function slideTiles(groupedCells) {
