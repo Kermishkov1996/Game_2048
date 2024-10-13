@@ -21,6 +21,7 @@ function handleInput(event) {
 			moveDown();
       break;
     case "ArrowLeft":
+			moveLeft();
       break;
     case "ArrowRight":
       break;
@@ -38,6 +39,10 @@ function moveUp() {
 
 function moveDown() {
 	slideTiles(grid.cellsGroupedByReversedColumn);
+}
+
+function moveLeft() {
+	slideTiles(grid.cellsGroupedByRow);
 }
 
 function slideTiles(groupedCells) {
