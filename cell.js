@@ -25,6 +25,10 @@ export class Cell {
 		this.linkedTileForMerge = tile;
 	}
 
+	unLinkTileForMerge() {
+		this.linkTileForMerge = null;
+	}
+
 	hasTileForMerge() {
 		return !!this.linkedTileForMerge;
 	}
