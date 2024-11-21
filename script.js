@@ -21,6 +21,7 @@ async function handleInput(event) {
 			}
 			await moveUp();
       break;
+
     case "ArrowDown":
 	    if (!canMoveDown()) {
 		    setupInputOnce();
@@ -28,6 +29,7 @@ async function handleInput(event) {
 	    }
 			await moveDown();
       break;
+
     case "ArrowLeft":
 	    if (!canMoveLeft()) {
 		    setupInputOnce();
@@ -35,6 +37,7 @@ async function handleInput(event) {
 	    }
 			await moveLeft();
       break;
+
     case "ArrowRight":
 	    if (!canMoveRight()) {
 		    setupInputOnce();
@@ -42,6 +45,7 @@ async function handleInput(event) {
 	    }
 			await moveRight();
       break;
+
 		default:
 			setupInputOnce();
 			return;
@@ -78,7 +82,7 @@ async function moveRight() {
 async function slideTiles(groupedCells) {
 	const promises = [];
 
-	groupedCells.forEach(groupe => slideTilesInGroupe(groupe, promises));
+	groupedCells.forEach(group => slideTilesInGroup(group, promises));
 
 	await Promise.all(promises);
 
@@ -87,18 +91,18 @@ async function slideTiles(groupedCells) {
 	});
 }
 
-function slideTilesInGroupe(groupe, promises) {
-	for (let i =1; i < groupe.length; i++) {
-		if (groupe[i].isEmpty()) {
+function slideTilesInGroup(group, promises) {
+	for (let i =1; i < group.length; i++) {
+		if (group[i].isEmpty()) {
 			continue;
 		}
 
-		const cellWithTile = groupe[i];
+		const cellWithTile = group[i];
 
 		let targetCell;
 		let j = i - 1;
-		while(j>=0 && groupe[j].canAccept(cellWithTile.linkedTile)) {
-			targetCell = groupe[j];
+		while(j >= 0 && group[j].canAccept(cellWithTile.linkedTile)) {
+			targetCell = group[j];
 			j--;
 		}
 
@@ -114,7 +118,7 @@ function slideTilesInGroupe(groupe, promises) {
 			targetCell.linkTileForMerge(cellWithTile.linkedTile);
 		}
 
-		cellWithTile.unLinkTile();
+		cellWithTile.unlinkTile();
 	}
 }
 
